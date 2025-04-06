@@ -1,6 +1,6 @@
+
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 const Navbar = () => {
@@ -53,7 +53,6 @@ const Navbar = () => {
               </a>
             ))}
           </div>
-          <Button className="bg-brand-blue hover:bg-blue-700 text-white">Get Started</Button>
         </div>
 
         {/* Mobile Navigation Toggle */}
@@ -82,7 +81,6 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            <Button className="bg-brand-blue hover:bg-blue-700 text-white w-full">Get Started</Button>
           </div>
         </div>
       )}
