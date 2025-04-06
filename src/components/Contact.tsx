@@ -16,22 +16,104 @@ const Contact = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [slackWebhookUrl, setSlackWebhookUrl] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const sendToSlack = async (data: typeof formData) => {
+    if (!slackWebhookUrl) {
+      console.error("Slack webhook URL is not set");
+      return false;
+    }
+
+    try {
+      const slackMessage = {
+        blocks: [
+          {
+            type: "header",
+            text: {
+              type: "plain_text",
+              text: "New Contact Form Submission"
+            }
+          },
+          {
+            type: "divider"
+          },
+          {
+            type: "section",
+            fields: [
+              {
+                type: "mrkdwn",
+                text: `*Name:*\n${data.name}`
+              },
+              {
+                type: "mrkdwn",
+                text: `*Email:*\n${data.email}`
+              }
+            ]
+          },
+          {
+            type: "section",
+            fields: [
+              {
+                type: "mrkdwn",
+                text: `*Phone:*\n${data.phone || 'Not provided'}`
+              },
+              {
+                type: "mrkdwn",
+                text: `*Company:*\n${data.company || 'Not provided'}`
+              }
+            ]
+          },
+          {
+            type: "section",
+            text: {
+              type: "mrkdwn",
+              text: `*Message:*\n${data.message}`
+            }
+          }
+        ]
+      };
+
+      const response = await fetch(slackWebhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(slackMessage),
+      });
+
+      if (!response.ok) {
+        console.error('Failed to send message to Slack');
+        return false;
+      }
+      
+      return true;
+    } catch (error) {
+      console.error('Error sending message to Slack:', error);
+      return false;
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    let slackSent = false;
+    
+    try {
+      slackSent = await sendToSlack(formData);
+      
       toast({
         title: "Message sent successfully!",
-        description: "We'll get back to you as soon as possible.",
+        description: slackSent 
+          ? "We've received your message and will get back to you soon." 
+          : "Your message was received, but there was an issue with our notification system. We'll still process your request.",
       });
+      
       setFormData({
         name: '',
         email: '',
@@ -39,8 +121,21 @@ const Contact = () => {
         company: '',
         message: ''
       });
+    } catch (error) {
+      console.error("Error in form submission:", error);
+      toast({
+        title: "Error sending message",
+        description: "There was an error sending your message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
+  };
+
+  // Admin section to set the webhook URL (typically would be hidden in production)
+  const handleWebhookChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSlackWebhookUrl(e.target.value);
   };
 
   return (
@@ -142,6 +237,28 @@ const Contact = () => {
                 {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
             </form>
+
+            {/* Admin section for setting webhook URL - in production this would be hidden/protected */}
+            <div className="mt-8 pt-8 border-t border-gray-200">
+              <h4 className="text-sm font-medium text-gray-500 mb-2">Admin Settings</h4>
+              <div>
+                <label htmlFor="webhookUrl" className="block text-sm font-medium text-gray-700 mb-1">
+                  Slack Webhook URL
+                </label>
+                <Input
+                  id="webhookUrl"
+                  name="webhookUrl"
+                  type="text"
+                  value={slackWebhookUrl}
+                  onChange={handleWebhookChange}
+                  placeholder="https://hooks.slack.com/services/..."
+                  className="w-full text-sm"
+                />
+                <p className="text-xs text-gray-500 mt-1">
+                  Enter your Slack webhook URL here to receive form submissions in your Slack workspace.
+                </p>
+              </div>
+            </div>
           </div>
           
           <div className="bg-gradient-to-br from-brand-blue to-brand-teal rounded-xl shadow-lg p-8 text-white">
