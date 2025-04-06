@@ -27,6 +27,16 @@ const Navbar = () => {
     { name: 'Contact', href: '#contact' }
   ];
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id.replace('#', ''));
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  };
+
   return (
     <nav 
       className={cn(
@@ -35,7 +45,14 @@ const Navbar = () => {
       )}
     >
       <div className="container-custom flex items-center justify-between">
-        <a href="#home" className="flex items-center space-x-2">
+        <a 
+          href="#home" 
+          className="flex items-center space-x-2"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection('#home');
+          }}
+        >
           <span className="text-2xl font-bold text-gradient">DataSpark</span>
           <span className="text-brand-dark">Consult</span>
         </a>
@@ -47,6 +64,10 @@ const Navbar = () => {
               <a 
                 key={link.name}
                 href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(link.href);
+                }}
                 className="font-medium text-gray-700 hover:text-brand-blue transition-colors"
               >
                 {link.name}
@@ -75,7 +96,10 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(link.href);
+                }}
                 className="font-medium text-gray-700 hover:text-brand-blue transition-colors py-2"
               >
                 {link.name}

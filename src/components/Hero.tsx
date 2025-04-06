@@ -15,10 +15,21 @@ const Hero = () => {
               Expert IT consulting specializing in Splunk implementation and Data Engineering solutions to unlock the full potential of your data.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-brand-blue hover:bg-blue-700 text-white px-8 py-6 text-lg">
+              <Button 
+                className="bg-brand-blue hover:bg-blue-700 text-white px-8 py-6 text-lg"
+                onClick={() => {
+                  document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 Our Services <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" className="border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white px-8 py-6 text-lg">
+              <Button 
+                variant="outline" 
+                className="border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white px-8 py-6 text-lg"
+                onClick={() => {
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
                 Contact Us
               </Button>
             </div>
