@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -25,7 +24,6 @@ const Navbar = () => {
     { name: 'Home', href: '#home' },
     { name: 'Services', href: '#services' },
     { name: 'About', href: '#about' },
-    { name: 'Team', href: '#team' },
     { name: 'Contact', href: '#contact' }
   ];
 
