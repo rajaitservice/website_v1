@@ -12,7 +12,7 @@ const Footer = () => {
             <div className="flex items-center space-x-2 mb-6">
               <h2 className="text-2xl font-bold">
                 <span className="text-gradient">Raja</span>
-                <span className="text-white">IT Service</span>
+                <span className="text-white">IT</span>
               </h2>
             </div>
             <p className="text-gray-300 mb-6">
@@ -94,7 +94,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-700 pt-8 text-center">
           <p className="text-gray-400">
-            &copy; {currentYear} Raja IT Service. All rights reserved.
+            &copy; {currentYear} Raja IT. All rights reserved.
           </p>
         </div>
       </div>

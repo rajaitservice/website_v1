@@ -17,7 +17,7 @@ const About = () => {
         <div className="flex flex-col lg:flex-row gap-12 items-center">
           <div className="w-full lg:w-1/2 order-2 lg:order-1">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Why Choose <span className="text-gradient">Raja IT Service</span>
+              Why Choose <span className="text-gradient">Raja IT</span>
             </h2>
             <p className="text-gray-700 mb-6 text-lg">
               We are a specialized IT consulting firm focused on helping organizations harness the power of their data through expert Splunk implementation and cutting-edge Data Engineering solutions.

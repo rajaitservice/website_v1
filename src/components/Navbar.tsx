@@ -54,7 +54,7 @@ const Navbar = () => {
           }}
         >
           <span className="text-2xl font-bold text-gradient">Raja</span>
-          <span className="text-brand-dark">IT Service</span>
+          <span className="text-brand-dark">IT</span>
         </a>
 
         {/* Desktop Navigation */}
