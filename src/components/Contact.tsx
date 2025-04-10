@@ -269,8 +269,8 @@ const Contact = () => {
                 <Mail className="h-6 w-6 mt-1" />
                 <div>
                   <h4 className="font-bold">Email Us</h4>
-                  <p className="mt-1">info@datasparkconsult.com</p>
-                  <p>support@datasparkconsult.com</p>
+                  <p className="mt-1">info@rajaitservice.com</p>
+                  <p>support@rajaitservice.com</p>
                 </div>
               </div>
               
@@ -288,8 +288,8 @@ const Contact = () => {
                 <div>
                   <h4 className="font-bold">Visit Us</h4>
                   <p className="mt-1">
-                    123 Tech Plaza, Suite 200<br />
-                    San Francisco, CA 94103
+                    Logdansvägen 12<br />
+                    Stockholm, Sweden
                   </p>
                 </div>
               </div>
