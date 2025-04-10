@@ -53,8 +53,8 @@ const Navbar = () => {
             scrollToSection('#home');
           }}
         >
-          <span className="text-2xl font-bold text-gradient">DataSpark</span>
-          <span className="text-brand-dark">Consult</span>
+          <span className="text-2xl font-bold text-gradient">Raja</span>
+          <span className="text-brand-dark">IT Service</span>
         </a>
 
         {/* Desktop Navigation */}
