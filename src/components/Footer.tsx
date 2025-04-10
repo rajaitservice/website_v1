@@ -10,10 +10,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           <div>
             <div className="flex items-center space-x-2 mb-6">
-              <h2 className="text-2xl font-bold">
-                <span className="text-gradient">Raja</span>
-                <span className="text-white">IT</span>
-              </h2>
+              <h2 className="text-2xl font-bold text-gradient">Raja IT Service</h2>
             </div>
             <p className="text-gray-300 mb-6">
               Transforming data into actionable insights with expert Splunk implementation and Data Engineering solutions.
@@ -94,7 +91,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-700 pt-8 text-center">
           <p className="text-gray-400">
-            &copy; {currentYear} Raja IT. All rights reserved.
+            &copy; {currentYear} Raja IT Service. All rights reserved.
           </p>
         </div>
       </div>
