@@ -1,7 +1,7 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { CalendarIcon, Clock, ComingSoon } from "lucide-react";
+import { CalendarIcon, Clock, Clock3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Blog = () => {
@@ -21,7 +21,7 @@ const Blog = () => {
           <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-12">
             <div className="p-8 text-center">
               <div className="flex justify-center mb-6">
-                <ComingSoon className="h-24 w-24 text-brand-blue" />
+                <Clock3 className="h-24 w-24 text-brand-blue" />
               </div>
               <h2 className="text-3xl font-bold mb-4">Blog Coming Soon!</h2>
               <p className="text-lg text-gray-700 mb-6">
