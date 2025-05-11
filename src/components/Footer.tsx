@@ -13,7 +13,7 @@ const Footer = () => {
               <h2 className="text-2xl font-bold text-gradient">Raja IT Service</h2>
             </div>
             <p className="text-gray-300 mb-6">
-              Transforming data into actionable insights with expert Splunk implementation and Data Engineering solutions.
+              Innovating with curiosity, automating with purpose, delivering IT solutions that exceed expectations.
             </p>
             <div className="flex space-x-4">
               <a href="#" aria-label="Facebook" className="hover:text-brand-teal transition-colors">
