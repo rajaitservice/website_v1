@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="bg-brand-dark text-white py-12">
       <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <div>
             <div className="flex items-center space-x-2 mb-6">
               <h2 className="text-2xl font-bold text-gradient">Raja IT Service</h2>
@@ -29,37 +29,6 @@ const Footer = () => {
                 <Instagram className="h-5 w-5" />
               </a>
             </div>
-          </div>
-          
-          <div>
-            <h3 className="text-xl font-bold mb-6">Services</h3>
-            <ul className="space-y-3">
-              <li>
-                <a href="#services" className="text-gray-300 hover:text-white transition-colors">
-                  Splunk Implementation
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="text-gray-300 hover:text-white transition-colors">
-                  Splunk Optimization
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="text-gray-300 hover:text-white transition-colors">
-                  Data Pipeline Development
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="text-gray-300 hover:text-white transition-colors">
-                  Big Data Solutions
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="text-gray-300 hover:text-white transition-colors">
-                  Data Analytics
-                </a>
-              </li>
-            </ul>
           </div>
           
           <div>
